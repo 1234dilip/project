@@ -1,0 +1,8 @@
+<form [formGroup] ="login" (ngSubmit) ="onSubmit()">
+    <input type="text" formControlName = "name" placeholder="enteryourname"><br>
+    <input type="text" formControlName = "password" placeholder="enteryourpassword"><br>
+    <input type="date" formControlName = "lastLogin" placeholder="enterlastlogin"><br>
+    <input type="file" name="profile" (change) = "onFileSelect($event)"><br>
+    <!-- <input type="text" formControlName = "profileImage" placeholder="enterlastlogin"><br> -->
+   <button >login</button>
+</form>
