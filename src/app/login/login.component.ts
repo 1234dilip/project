@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { CkeditorService } from '../ckeditor.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { CkeditorService } from '../ckeditor.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   login:any
   constructor(private ckeditor:CkeditorService) { }
 
@@ -33,16 +35,25 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
+    
 const userData = new FormData()
 
 userData.append('name',this.login.get('name').value);
 userData.append('password',this.login.get('password').value);
 userData.append('lastLogin',this.login.get('lastLogin').value);
-userData.append('profile',this.login.get('profile').value);
-    this.ckeditor.createData(userData).subscribe((response) =>{
-      console.log('data od data in this the response',response)
+// userData.append('profile',this.login.get('profile').value);
+console.log("userData",userData)
+
+    this.ckeditor.createData(this.login.value).subscribe((response) =>{
+      console.log("datata of response",response)
+      // const store =  localStorage.setItem('currentUser', JSON.stringify(response))
+      // console.log('store',store)
+
     })
+   
 
   }
+ 
+  
 
 }

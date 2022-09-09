@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DiscriptionComponent } from './discription/discription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,15 @@ import { RegistrationComponent } from './registration/registration.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { CkeditorService } from './ckeditor.service';
+import { InterceptorService } from './interceptor.service';
+// import { MatFileUploadModule } from 'mat-file-upload/lib/mat-file-upload.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { UserDataComponent } from './user-data/user-data.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +35,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     LoginComponent,
     DiscriptionComponent,
     HeaderComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +48,25 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserAnimationsModule,
     MatMenuModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
+    
+    
+    
+    
    
   ],
-  providers: [],
+  providers: [
+    CkeditorService , 
+    {
+     provide: HTTP_INTERCEPTORS,
+     useClass: InterceptorService,
+     multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

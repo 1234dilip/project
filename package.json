@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "^14.0.0",
     "@angular/cdk": "^14.2.0",
     "@angular/common": "^14.0.0",
@@ -24,6 +25,8 @@
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",
     "@types/ckeditor": "^4.9.10",
     "ckeditor4-angular": "^3.1.1",
+    "g": "^2.0.1",
+    "mat-file-upload": "^11.1.2",
     "ng2-ckeditor": "^1.3.7",
     "node-modules": "^1.0.1",
     "rxjs": "~7.5.0",
@@ -32,7 +35,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.2",
-    "@angular/cli": "~14.0.2",
+    "@angular/cli": "^14.2.0",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.1.0",

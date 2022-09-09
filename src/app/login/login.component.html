@@ -1,8 +1,23 @@
-<form [formGroup] ="login" (ngSubmit) ="onSubmit()">
-    <input type="text" formControlName = "name" placeholder="enteryourname"><br>
-    <input type="text" formControlName = "password" placeholder="enteryourpassword"><br>
-    <input type="date" formControlName = "lastLogin" placeholder="enterlastlogin"><br>
-    <input type="file" name="profile" (change) = "onFileSelect($event)"><br>
-    <!-- <input type="text" formControlName = "profileImage" placeholder="enterlastlogin"><br> -->
-   <button >login</button>
-</form>
+<!-- <input type="text" formControlName = "name" placeholder="enteryourname"><br>
+        <input type="text" formControlName = "password" placeholder="enteryourpassword"><br>
+  <input type="date" formControlName = "lastLogin" placeholder="enterlastlogin"><br> -->
+        <!-- <input type="file" name="profile" (change) = "onFileSelect($event)"><br> -->
+        <!-- <input type="text" formControlName = "profileImage" placeholder="enterlastlogin"><br>   -->
+       <!-- <button >login</button>  -->
+       <!-- style="width: 18rem;" -->
+
+
+
+<mat-card class="loginStyle" >
+    <form [formGroup] ="login" (ngSubmit) ="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>enterName</mat-label>
+            <input matInput placeholder="entername" formControlName = "name">
+         </mat-form-field><br>
+         <mat-form-field appearance="fill">
+            <mat-label>enterPassword</mat-label>
+            <input matInput placeholder="enterpassword" formControlName = "password">
+         </mat-form-field><br>
+         <button mat-button color="primary">login</button>
+    </form>
+</mat-card>

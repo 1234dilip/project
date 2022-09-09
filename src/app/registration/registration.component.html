@@ -1,1 +1,54 @@
-<p>registration works!</p>
+<mat-card class="registrationStyle" >
+<form [formGroup] = "myForm" (ngSubmit) = "onSubmit()">
+<mat-form-field appearance="fill">
+    <mat-label>enterName</mat-label>
+    <input matInput placeholder="entername" formControlName = "name">
+   
+</mat-form-field><br>
+
+<mat-form-field appearance="fill">
+    <mat-label>enterPassword</mat-label>
+    <input matInput placeholder="enterPassword" formControlName = "password" required>
+
+    <mat-error *ngIf="myForm.hasError('required', 'password')">
+        Please enter your newpassword
+    </mat-error>
+   
+</mat-form-field><br>
+
+<mat-form-field appearance="fill">
+    <mat-label>confirmPassword</mat-label>
+    <input matInput placeholder="confirmPassword" formControlName = "confirmpassword"  [errorStateMatcher]="matcher">
+
+    <mat-error *ngIf="myForm.hasError('notSame')">
+        Passwords do not match
+    </mat-error>  
+   
+</mat-form-field><br>
+<input type="file" name="profile" (change) = "onFileSelect($event)">
+
+<button mat-button color="accent">Registration</button>
+
+
+
+<!-- <input type="file"> -->
+</form>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
