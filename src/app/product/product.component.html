@@ -1,0 +1,31 @@
+<form [formGroup]="productForm" (ngSubmit)="onProductData()">
+  <input type="number" formControlName="ptoductId" placeholder="enterProductId"><br>
+  <input type="text" formControlName="productName" placeholder="enterproductName"><br>
+  <input type="number" formControlName="productQuantity" placeholder="enterproductQuantity"><br>
+  <input type="number" formControlName="productAmount" placeholder="enterproductAmount"><br>
+  <button type="submit">save</button>
+</form>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ptoductId</th>
+      <th scope="col">productName</th>
+      <th scope="col">productQuantity</th>
+      <th scope="col">productAmount</th>
+      <th scope="col">delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of data">
+      <td>{{product.ptoductId}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.productQuantity}}</td>
+      <td>{{product.productAmount}}</td>
+      <th><button (click)="onClick(product.ptoductId)">{{product.delete}}button</button></th>
+
+    </tr>
+  </tbody>
+</table>

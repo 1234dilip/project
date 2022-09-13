@@ -26,6 +26,7 @@ import { InterceptorService } from './interceptor.service';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { UserDataComponent } from './user-data/user-data.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UserDataComponent } from './user-data/user-data.component';
     DiscriptionComponent,
     HeaderComponent,
     RegistrationComponent,
-    UserDataComponent
+    UserDataComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

@@ -7,37 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CkeditorComponent implements OnInit {
   name = 'ng2-ckeditor';
-  ckeConfig:any =  CKEDITOR.config;
-  mycontent:any =  '';
-  
+  ckeConfig: any = CKEDITOR.config;
+  mycontent: any = '';
+
   ckeditorContent: string = '<p>Some html</p>';
-  myform:any;
+  myform: any;
   public config: any;
 
-  
 
-  constructor() { 
-   
+
+  constructor() {
+
   }
- 
+
   ngOnInit(): void {
-    // CKEDITOR.on("instanceCreated", (event) => {
-    //   var editor = event.editor,
-    //     element = editor.element;
-    //   editor.name = "content";
-    // });
+
 
     this.config = this.getConfigOfCKEditor();
   }
 
 
- 
 
 
 
- 
+
+
   getData() {
-    console.log("data of instance of many variable",this.ckeditorContent);
+    console.log("data of instance of many variable", this.ckeditorContent);
   }
 
   public getConfigOfCKEditor(): any {
@@ -71,6 +67,6 @@ export class CkeditorComponent implements OnInit {
       codeSnippet_languages: { javascript: 'JavaScript', php: 'PHP' }
     };
   }
- 
+
 
 }

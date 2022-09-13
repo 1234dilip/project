@@ -21,8 +21,9 @@ export class CkeditorService {
   
   } 
   registerData(paylaod:any){
-  
+  console.log('data of register3333',paylaod)
   return this.http.post(`${environment.Api_url}/v1/registerUser`,paylaod)
+
   }
   
   getAuthToken() {
