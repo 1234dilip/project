@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CkeditorService } from './userData.service';
+import { BlogService } from './blog.service';
 
-describe('CkeditorService', () => {
-  let service: CkeditorService;
+describe('BlogService', () => {
+  let service: BlogService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CkeditorService);
+    service = TestBed.inject(BlogService);
   });
 
   it('should be created', () => {

@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { CkeditorService } from './ckeditor.service';
+import { CkeditorService } from './userData.service';
 
 @Injectable({
   providedIn: 'root'

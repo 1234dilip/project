@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
-import { CkeditorService } from '../ckeditor.service';
-
+import { BlogService } from '../blog.service';
+import { CkeditorService } from '../userData.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -22,74 +29,63 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
 })
-
-
-
-
-
-
 export class RegistrationComponent implements OnInit {
-  myForm: any
+  [x: string]: any;
+  myForm: any;
+  uploads: any = [];
+  isSignedIn!: boolean;
 
   matcher = new MyErrorStateMatcher();
-  constructor(private userService: CkeditorService, private fb: FormBuilder, private router: Router) { }
+  constructor(
+    private userService: CkeditorService,
+    private fb: FormBuilder,
+    private router: Router,
+    private blogService: BlogService
+  ) {}
 
   ngOnInit(): void {
-    this.myForm = this.fb.group({
-      name: [''],
-      password: ['', [Validators.required]],
-      confirmpassword: [''],
+    this.myForm = this.fb.group(
+      {
+        name: [''],
+        password: ['', [Validators.required]],
+        confirmpassword: [''],
 
-      profile: new FormControl('')
-
-    }
-      , { validator: this.checkPasswords })
-
-
-
+        profile: new FormControl(''),
+      },
+      { validator: this.checkPasswords }
+    );
   }
-
 
   profileImageSelect(event: any) {
-    const file = event.target.files[0]
-
-
-    console.log('data in the file', file)
-    console.log('data of file', this.myForm.get('profile'))
+    const file = event.target.files[0];
     this.myForm.patchValue({
-      profile: file
+      profile: file,
     });
-    console.log("filllllll", this.myForm.get('profile').value)
   }
-
 
   userRegistration() {
-    const userData = new FormData()
-
+    const userData = new FormData();
     userData.append('name', this.myForm.get('name').value);
     userData.append('password', this.myForm.get('password').value);
-    userData.append('confirmpassword', this.myForm.get('confirmpassword').value);
+    userData.append(
+      'confirmpassword',
+      this.myForm.get('confirmpassword').value
+    );
     userData.append('profile', this.myForm.get('profile').value);
-
-
     this.userService.registerData(userData).subscribe((response: any) => {
-
-      console.log('datta of response', response)
-      console.log(userData)
-      this.router.navigate(['/userrData', response._id]);
-    })
+      this.isSignedIn = true;
+    });
+    this.uploads = this.myForm;
   }
+
   checkPasswords(group: FormGroup) {
-  
     let pass = group.controls['password'].value;
     let confirmPass = group.controls['confirmpassword'].value;
-
     return pass === confirmPass ? null : { notSame: true };
   }
 

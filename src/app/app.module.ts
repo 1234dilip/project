@@ -20,13 +20,19 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { CkeditorService } from './ckeditor.service';
+import { CkeditorService } from './userData.service';
 import { InterceptorService } from './interceptor.service';
 // import { MatFileUploadModule } from 'mat-file-upload/lib/mat-file-upload.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { UserDataComponent } from './user-data/user-data.component';
 import { ProductComponent } from './product/product.component';
+import { BlogComponent } from './blog/blog.component';
+import {MatSelectModule} from '@angular/material/select';
+import { FeedComponent } from './feed/feed.component';
+
+
+
 
 
 @NgModule({
@@ -38,7 +44,9 @@ import { ProductComponent } from './product/product.component';
     HeaderComponent,
     RegistrationComponent,
     UserDataComponent,
-    ProductComponent
+    ProductComponent,
+    BlogComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,9 @@ import { ProductComponent } from './product/product.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
+    
     
     
     

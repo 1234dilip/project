@@ -1,4 +1,14 @@
 .header{
-    /* color: aquamarine; */
+   
     background-color: black;
+}
+.logOut{
+    position: absolute;
+    
+    border-radius: 20px;
+    top: 0px;
+    right: 0px;
+    margin: 5px;
+    background-color: red;
+    color: aliceblue;
 }

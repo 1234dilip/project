@@ -1,7 +1,10 @@
 
 <mat-toolbar class="header">
     <span>My Application</span>
-    <a routerLink = "/">signin</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a routerLink = "/register">registration</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a routerLink = "/userrData">userData</a>
+   <a class="btn btn-primary" [routerLink] = "['/userData',id]">userData</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-primary" [routerLink] = "['/blog',id]" >blog</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-primary" routerLink = "/feed">Feed</a>
+
+    <button class="logOut" (click) ="logOut()" routerLink="/login"  >logout</button>
+
   </mat-toolbar>

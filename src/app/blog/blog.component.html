@@ -1,0 +1,113 @@
+<button type="button" class="btn btn-primary" (click)="openPopup()" style="margin-left:20px ;">Add Blog
+</button>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="blogForm" (ngSubmit)="addBlog()" class="shiftBlog">
+          <mat-form-field appearance="fill">
+            <mat-label>EnterTittle</mat-label>
+            <input matInput placeholder="EnterTittle" formControlName="tittle">
+
+          </mat-form-field><br>
+
+
+
+          <mat-form-field appearance="fill">
+            <mat-label>Enter Description</mat-label>
+            <input matInput placeholder="Enterdiscript" formControlName="description">
+
+          </mat-form-field><br>
+
+          <mat-label>status</mat-label><br>
+          <select formControlName="status" class="selectBoxStyle">
+            <option value="Published">Published</option>
+            <option value="Draft">Draft</option>
+          </select><br>
+
+
+
+          <mat-label>access</mat-label><br>
+          <select formControlName="access" [(ngModel)]="selectedStatus" name="blogStatus" required
+            class="selectBoxStyle">
+            <option value="Public">Public</option>
+            <option value="Ptivate">Ptivate</option>
+            <option value="accessedUsers">accessedUsers
+
+            </option>
+
+          </select><br>
+
+          <div *ngIf="selectedStatus == 'accessedUsers'">
+
+            <mat-label>EnterAccessedUsers</mat-label>
+
+            <select formControlName="accessedUsers" class="selectBoxStyle">
+              <option value="{{user.name}}" *ngFor="let user of userName">{{user.name}}</option>
+            </select>
+
+
+
+
+
+
+          </div>
+          <div class="modal-btn">
+            <button type="submit" class="btn btn-success">addBlog</button>
+            <button type="button" class="btn btn-danger" (click)="closePopup()">
+              Close
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div *ngFor="let blog of blogData" class="blockStyle">
+
+  <h2 style="text-align: center;">{{blog.tittle}}</h2>
+  <div>
+    <p>Description:&nbsp; {{blog.description}} </p>
+  </div>
+
+  <div>
+    <p>Access : {{blog.access}}</p>
+
+  </div>
+  <div>
+    <p>status:{{blog.status}}</p>
+
+  </div>
+  <div>
+    <p *ngIf="blog.accessedUsers.length">accessedUsers: {{blog.accessedUsers}}</p>
+    <p *ngIf="!blog.accessedUsers.length"> null</p>
+
+
+
+  </div>
+
+  <div>
+    <p>DateCreated: {{blog.DateCreated}}</p>
+
+  </div>
+
+  <div>
+    <p>lastUpdate :{{blog.lastUpdate}}</p>
+
+  </div>
+  <button>Delete</button>
+
+
+
+</div>

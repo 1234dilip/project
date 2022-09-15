@@ -1,0 +1,33 @@
+.shiftBlog {
+  width: 18rem;
+  margin: auto;
+
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.selectBoxStyle {
+  position: relative;
+  display: inline-block;
+  width: 30vh;
+  border: solid;
+}
+
+.blockStyle {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+
+}
+
+.modal-btn {
+  margin-top: 2rem;
+
+
+}
+
+.modal-btn button {
+  margin: 1rem;
+
+}

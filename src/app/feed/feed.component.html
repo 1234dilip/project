@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">tittle</th>
+        <th scope="col">Description</th>
+        <th scope="col">access</th>
+        <th scope="col">status</th>
+        <!-- <th scope="col">accessedUsers</th> -->
+        <th scope="col">DateCreated</th>
+        <th scope="col">lastUpdate</th>
+  
+      </tr>
+    </thead>
+    <tbody>
+<tr *ngFor="let feed of feedData">
+      
+          <td>{{feed.tittle}}</td>
+       <td>{{feed.description}}</td>
+        <td>{{feed.access}}</td>
+        <td>{{feed.status}}</td>
+        <!-- <td >{{feet.accessedUsers}}</td> -->
+      
+        <td>{{feed.DateCreated}}</td>
+        <td>{{feed.lastUpdate}}</td>
+      </tr>
+    </tbody>
+</table>
+
