@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CkeditorService } from '../userData.service';
 
 @Component({
@@ -8,17 +8,23 @@ import { CkeditorService } from '../userData.service';
 })
 export class HeaderComponent implements OnInit {
   id: any;
+  show:boolean= false
+  // isAuthenticated: string | null | undefined;
 
-  constructor(private user: CkeditorService) { }
+
+  constructor(public user: CkeditorService) { }
 
   ngOnInit(): void {
     this.id = this.user.getUserId()
     console.log('localstorage id', this.user.getUserId())
+
   }
 
   logOut() {
     localStorage.removeItem('id'),
       localStorage.removeItem('token')
+    
+      
   }
-
+ 
 }

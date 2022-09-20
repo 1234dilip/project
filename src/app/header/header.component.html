@@ -1,10 +1,15 @@
 
-<mat-toolbar class="header">
-    <span>My Application</span>
-   <a class="btn btn-primary" [routerLink] = "['/userData',id]">userData</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-toolbar class="header" *ngIf="user.isTokenAvailable()">
+  
+   <a class="btn btn-primary" [routerLink] = "['/userData',id]"  >userData</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a class="btn btn-primary" [routerLink] = "['/blog',id]" >blog</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="btn btn-primary" routerLink = "/feed">Feed</a>
+    <a class="btn btn-primary" routerLink = "/feed"  >Feed</a>
 
-    <button class="logOut" (click) ="logOut()" routerLink="/login"  >logout</button>
+    <button class="logOut" (click) ="logOut()" routerLink="/login" >logout</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- <a class="btn btn-primary" routerLink = "/">login</a>&nbsp;&nbsp;&nbsp;&nbsp; -->
 
   </mat-toolbar>
+
+
+
+  

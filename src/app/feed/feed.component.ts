@@ -11,8 +11,10 @@ import { CkeditorService } from '../userData.service';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
+[x: string]: any;
 
   feedData:any = []
+  errorMessage:any;
   constructor(private userService: CkeditorService, private fb: FormBuilder, private router: Router,private blogService:BlogService) { }
 
   ngOnInit(): void {
@@ -23,7 +25,12 @@ feetresponseData(){
   this.blogService.feetpublicData().subscribe((response:any) => {
    
     this.feedData = response
-  })
+  },
+  ()=> {
+    this.errorMessage = "Sorry, Could not show feedData  !"
+   }
+ 
+        )
   }
 
 

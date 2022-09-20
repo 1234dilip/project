@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CkeditorComponent } from './ckeditor/ckeditor.component';
+import { CkeditorComponent } from './editor/ckeditor.component';
 
 import { CKEditorModule } from 'ng2-ckeditor';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +31,8 @@ import { BlogComponent } from './blog/blog.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FeedComponent } from './feed/feed.component';
 
+import { UserGuard } from './user.guard';
+import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 
 
 
@@ -46,7 +48,10 @@ import { FeedComponent } from './feed/feed.component';
     UserDataComponent,
     ProductComponent,
     BlogComponent,
-    FeedComponent
+    FeedComponent,
+    BlogdetailsComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,9 @@ import { FeedComponent } from './feed/feed.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    
+
     
     
     
@@ -72,7 +79,7 @@ import { FeedComponent } from './feed/feed.component';
    
   ],
   providers: [
-    CkeditorService , 
+    CkeditorService , UserGuard,
     {
      provide: HTTP_INTERCEPTORS,
      useClass: InterceptorService,

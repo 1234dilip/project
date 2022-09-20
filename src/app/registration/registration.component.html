@@ -1,3 +1,5 @@
+<h3 style="text-align: center;color: red;">{{ errorMessage }}</h3>
+
 <mat-card class="registrationStyle" *ngIf="!isSignedIn">
   <form [formGroup]="myForm" (ngSubmit)="userRegistration()">
     <mat-form-field appearance="fill">
@@ -48,3 +50,4 @@
   <h1>Successfully Registered</h1>
   <button routerLink="/login">LogIn</button>
 </div>
+

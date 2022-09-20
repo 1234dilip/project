@@ -1,3 +1,4 @@
+<h3 style="text-align: center;color: red;">{{ errorMessage }}</h3>
 
 <mat-card class="loginStyle">
     <form [formGroup]="login" (ngSubmit)="userLogin()">
@@ -11,5 +12,5 @@
         </mat-form-field><br>
         <button mat-button color="primary">login</button>
     </form>
-    <a href="/register">Registration</a>
+    <a  mat-button color="primary" href="/register">Registration</a>
 </mat-card>

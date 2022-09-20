@@ -13,24 +13,36 @@ export class CkeditorService {
     return this.http.post(`${environment.Api_url}/v1/loginUser`, paylaod).pipe(
       map((user: any) => {
         localStorage.setItem('token', user.token);
+        
         return user;
+
+       
       })
     );
   }
   registerData(paylaod: any) {
-    return this.http.post(`${environment.Api_url}/v1/registerUser`, paylaod);
+    return this.http.post(`${environment.Api_url}/v1/registerUser`, paylaod )
   }
 
   getAuthToken() {
-    return localStorage.getItem('token');
+    return  localStorage.getItem('token');
+
   }
 
+
+  isTokenAvailable() {
+    return  !! localStorage.getItem('token');
+
+  }
+
+ 
+
   getloginData() {
-    return this.http.get(`${environment.Api_url}/v1/getloginData`);
+    return this.http.get(`${environment.Api_url}/v1/getloginData`)
   }
 
   getDataFromid(_id: any) {
-    return this.http.get(`${environment.Api_url}/v1/getuserofDataByid/${_id}`);
+    return this.http.get(`${environment.Api_url}/v1/getuserofDataByid/${_id}`)
   }
 
   getUserId() {
@@ -40,4 +52,7 @@ export class CkeditorService {
   accessedUserData() {
     return this.http.get(`${environment.Api_url}/v1/get/users/`);
   }
+
+  
+  
 }

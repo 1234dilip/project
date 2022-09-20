@@ -39,6 +39,7 @@ export class RegistrationComponent implements OnInit {
   myForm: any;
   uploads: any = [];
   isSignedIn!: boolean;
+  errorMessage:any
 
   matcher = new MyErrorStateMatcher();
   constructor(
@@ -79,7 +80,12 @@ export class RegistrationComponent implements OnInit {
     userData.append('profile', this.myForm.get('profile').value);
     this.userService.registerData(userData).subscribe((response: any) => {
       this.isSignedIn = true;
-    });
+    },
+    ()=> {
+      this.errorMessage = "Sorry, Could not register  !"
+     }
+    
+    );
     this.uploads = this.myForm;
   }
 

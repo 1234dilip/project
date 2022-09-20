@@ -10,6 +10,7 @@ import { CkeditorService } from '../userData.service';
 })
 export class UserDataComponent implements OnInit {
   userData: any;
+  errorMessage:any
 
   constructor(
     private userService: CkeditorService,
@@ -25,6 +26,8 @@ export class UserDataComponent implements OnInit {
   getDataFromId(id: any) {
     this.userService.getDataFromid(id).subscribe((response) => {
       this.userData = response;
-    });
+    }, ()=> {
+      this.errorMessage = "Sorry, Could not  getData  !"
+     });
   }
 }

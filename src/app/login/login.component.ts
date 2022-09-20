@@ -12,10 +12,13 @@ import { CkeditorService } from '../userData.service';
 })
 export class LoginComponent implements OnInit {
   login: any;
+  error2:any
+  errorMessage:any
   constructor(
     private userService: CkeditorService,
     private router: Router,
     private blogService: BlogService
+
   ) {}
 
   ngOnInit(): void {
@@ -25,13 +28,20 @@ export class LoginComponent implements OnInit {
       lastLogin: new FormControl(''),
       profile: new FormControl(''),
     });
+
+  //  this.userLogin()
   }
 
   userLogin() {
-    this.userService.userLogIn(this.login.value).subscribe((response) => {
+    this.userService.userLogIn(this.login.value).subscribe((response:any) => {
       console.log('datata of response', response);
       this.router.navigate(['/userData', response._id]);
       localStorage.setItem('id', response._id);
-    });
+      // localStorage.removeItem('token')
+    },
+    ()=> {
+      this.errorMessage = "Sorry, Could not login  !"
+     }
+   );
   }
 }
